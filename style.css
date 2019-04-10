@@ -1,0 +1,544 @@
+/*
+  UKŁAD DOKUMENTU:
+  1. style ogólne
+  2. #wrapper header    - menu główne
+  3. #wrapper main      - główna zawartość strony
+    a) main#index       - strona /index.php, inny układ
+    b) main             - strony bloga
+      I.  article       - lewa część strony, artykuł
+      II. aside         - prawa część strony, linki rekomendowane
+  4. #wrapper footer    - stopka strony, w tym:
+                          footer#index - stopka strony /index.php
+  5. style do responsywności (@media)
+*/
+
+
+/* ################  [1]  style ogólne  ################ */
+
+*, *:before, *:after {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+body{
+  background: url("/graphics/backgrounds/main-first.jpg");
+  background-size: auto;
+  background-position-x: 25%;
+  background-attachment: fixed;
+}
+a{
+  text-decoration: none;
+}
+
+.active{
+  border-bottom: 3px solid hsl(150, 100%, 50%);
+}
+.active:hover{
+  transition-delay: 100ms;
+  transition-duration: 800ms;
+  border-bottom: 3px solid hsl(32, 75%, 50%);
+}
+.no-disp{
+  display: none;
+}
+.screenshot{
+  width: 100%;
+}
+.source a{
+  color: hsla(0, 0%, 0%, 40%);
+  font-size: 16px;
+}
+.under-nav{
+  width: 100%;
+  border: none;
+  border-top: 5px solid green;
+}
+
+hr.main-line{
+  height: 2px;
+  width: 90%;
+  margin-bottom: 30px;
+  border: 0;
+  background-image: linear-gradient(to right, white, hsl(0, 0%, 50%), white);
+  clear: both;
+}
+.mob-icon{
+  width:50px;
+  height:50px;
+  margin:10px;
+}
+#list-of-blocks{
+  width: 100%;
+}
+
+/* ################  [2]  #WRAPPER HEADER - GŁÓWNE MENU  ################*/
+
+.main-header{
+  width: 100%;
+  height: 45px;
+  background-color: black;
+}
+.main-nav{ /* pasek górny cały */
+  height: 40px;
+  max-width: 1032px
+}
+.main-nav .logo img{ /* logo */
+  height: 40px;
+  width: auto;
+  float: left;
+  margin-left: 5%;
+}
+.button{
+  display: block;
+  float: right;
+  padding: 0px 2px;
+  height: inherit;
+  text-align: center;
+  color: hsl(134, 84%, 63%);
+  line-height: 40px;
+  margin-right: 30px;
+}
+.button:hover{ /* po najechaniu myszą na blog */
+  transition-delay: 100ms;
+  transition-duration: 800ms;
+  color: hsl(32, 75%, 50%);
+}
+.top-menu{
+  list-style-type: none;
+  float: right;
+}
+.top-menu li{
+  float:left;
+}
+
+
+/* ################  [3]  WRAPPER MAIN - GŁÓWNA ZAWARTOŚĆ STRONY  ################*/
+
+/* ################  [a]  main#index - main pliku /index.php  ################ */
+
+.half-section{
+  height: 100%;
+}
+.two-column{
+  min-height: 600px;
+}
+.index-main-section{
+  clear: both;
+}
+.index-main{
+  width: 100%;
+  margin-top: 5px;
+}
+#first{ /* pierwsza część indexu */
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  height: 600px;
+}
+#main-first-background{
+  height:  100%;
+  background-image: url("/graphics/backgrounds/main-first.jpg");
+  z-index:  -1;
+  position:  absolute;
+  width:  100%;
+  opacity: 0.5;
+  background-size: cover;
+  background-position-y: 50%
+}
+.index-h1{
+  text-align: center;
+  font-size: 80px;
+  padding-top: 200px;
+  color: hsl(0, 0%, 20%);
+}
+.index-p{
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 50px;
+  color: hsl(0, 0%, 30%);
+}
+#main-blog-button{
+  text-align: center;
+  background-color: hsl(134, 84%, 63%);
+  color: hsl(0, 0%, 10%);
+
+  font-weight: 900;
+  font-size: 20px;
+  padding: 10px 20px;
+
+  display: block;
+  max-width: 11em;
+
+  border: 1px solid hsl(134, 84%, 100%);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 1px hsla(0, 0%, 0%, 20%);
+}
+#main-blog-button:hover{
+  transition-delay: 100ms;
+  transition-duration: 200ms;
+  color: hsl(32, 75%, 50%);
+}
+
+#wrapper main#index section.mob img{
+  float: left;
+  right: 10%;
+  max-height:450px;
+  /* szerokosc 438 wysokosc 423*/
+}
+#wrapper main#index section#description{
+  padding: 30px;
+}
+#wrapper main#index section#description h1{
+  font-size: 30px;
+  padding: 20px;
+  color: hsl(0, 0%, 20%);
+  letter-spacing: 3px;
+}
+#wrapper main#index section#description p{
+  padding: 20px;
+  color: hsl(0, 0%, 30%);
+}
+
+
+/* ################  [b]  main stron w katalogu /blog  ################*/
+
+#wrapper main{
+  width: 100%;
+  min-height: 500px;
+  box-shadow: 5px 5px 10px 1px hsla(0, 0%, 0%, 20%);
+  background-color: white;
+  display: table;
+}
+#wrapper main article, #wrapper main aside{
+  margin-bottom: 20px;
+}
+
+
+/* ################  [I]  #WRAPPER MAIN ARTICLE - ARTYKUŁ (PO LEWEJ)  ################*/
+
+#wrapper main article{
+  /*
+  box-shadow: 2px 4px 10px 1px hsla(0, 0%, 0%, 20%);
+  */
+
+}
+
+#wrapper main article section{ /* sekcja czyli część postu, jeden akapit */
+  padding: 0 20px;
+}
+#wrapper main article section header{
+  height: 50px;
+  display: table;
+  width: 100%;
+}
+#wrapper main article section header h1{ /* czyli główny tytuł artykułu */
+  padding-top: 20px;
+  font-size: 30px;
+  font-weight: 900;
+  color: hsl(0, 0%, 20%);
+  letter-spacing: 0.1em;
+}
+
+#wrapper main article section header p{ /* czyli tytuł akapitu */
+  padding-top: 10px;
+  font-size: 25px;
+  position: relative;
+  color: hsl(0, 0%, 30%);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+#wrapper main article section p{  /* czyli właściwa treść postu */
+  display: table;
+  margin-top: 15px;
+  width: 100%;
+  color: hsl(0, 0%, 40%);
+  font-size: 17px;
+  padding: 5px 5px 10px 5px;
+}
+#wrapper main article section ul li{
+	color: hsl(0, 0%, 45%);
+	text-transform: lowercase;
+}
+
+/* ################ [II] WRAPPER MAIN ASIDE - MENU (PO PRAWEJ) ################ */
+
+#wrapper main aside{
+  min-height: inherit;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  /*
+  box-shadow: 2px 4px 10px 1px hsla(0, 0%, 0%, 20%);
+  */
+}
+#wrapper main aside header{
+  display: table;
+}
+#wrapper main aside header p{ /* zobacz również */
+  margin: 10px 5px;
+  padding: 5px 0px;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+#wrapper main aside nav header{
+  padding: 10px 5px 5px 5px;
+  border-top: 1px solid hsla(0, 0%, 0%, 10%);
+  width: 90%;
+}
+#wrapper main aside nav header a{
+  color: hsl(0, 0%, 20%);
+  font-weight: 700;
+}
+#wrapper main aside nav header a:hover{
+  color: hsl(0, 0%, 20%);
+  transition-delay: 100ms;
+  transition-duration: 200ms;
+  color: hsl(32, 75%, 50%);
+}
+
+#wrapper main aside nav p{
+  margin: 5px auto;
+  padding: 0px 5px 15px 5px;
+  font-size: 15px;
+  color: hsl(0, 0%, 30%);
+}
+
+
+
+/* ################  [4]  WRAPPER FOOTER - STOPKA  ################*/
+
+#wrapper footer{
+  display: table;
+  background-color: hsl(134, 84%, 63%);
+  box-shadow: 5px 5px 10px 1px hsla(0, 0%, 0%, 20%);
+  padding: 20px 30px;
+}
+
+#wrapper footer section{
+  height: inherit;
+  width: 45%;
+  float: left;
+  font-size: 14px;
+  line-height:32px;
+}
+#wrapper footer section *{
+  color: hsl(134, 84%, 20%);
+}
+
+#wrapper footer section a:hover{
+  transition-delay: 100ms;
+  transition-duration: 200ms;
+  color: hsl(32, 75%, 50%);
+}
+#wrapper footer section.social-logo{
+  width: 10%;
+  height:32px;
+  float:right;
+}
+
+#wrapper footer section a img#social-logo{
+	height:32px;
+  position:absolute;
+}
+
+/* ########  stopka strony głównej  ########  */
+#wrapper footer#index{
+  width: 100%;
+}
+
+
+/* ################ [5]  syle do responsywności ################ */
+
+@media (min-width: 1250px){
+  div#wrapper main, div#wrapper footer, div#wrapper header nav{
+    width: 1200px;
+  }
+  div#wrapper main article{
+    width: 70%;
+    float: left;
+    height: inherit;
+    margin: 20px 0 20px 20px;
+  }
+  div#wrapper main aside{
+    margin: 20px;
+    padding: 0 20px;
+    width: 25%;
+    float: left;
+    height: inherit;
+  }
+  div#wrapper section.half-section{
+    width: 50%;
+    float: left;
+  }
+  .mob img{
+    margin: 10%;
+  }
+}
+
+
+@media (min-width: 1000px) and (max-width: 1250px){
+  div#wrapper main, div#wrapper footer, div#wrapper header nav{
+    width: 950px;
+  }
+  div#wrapper header nav ul li p a{
+    line-height: 1em;
+  }
+  div#wrapper main article{
+    width: 70%;
+    float: left;
+    height: inherit;
+    margin: 20px 0 20px 15px;
+  }
+  div#wrapper main aside{
+    margin: 20px 15px 20px 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 25%;
+    float: left;
+    height: inherit;
+  }
+  div#wrapper section.half-section{
+    width: 50%;
+    float: left;
+  }
+  .mob img{
+    margin: 10%;
+  }
+}
+
+
+/*  najmniejsze rozdzielczości, tryb pionowy:  */
+@media (min-width: 800px) and (max-width: 1000px){
+  div#wrapper main, div#wrapper footer, div#wrapper header nav{
+    width: 750px;
+  }
+  div#wrapper main article{
+    width: 90%;
+    float: none;
+	  margin-top: 30px;
+  }
+  div#wrapper main article section p{
+    display: block;
+    padding-bottom: 15px;
+  }
+  div#wrapper main aside{
+    margin-top: 30px;
+    width: 90%;
+    float: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  div#wrapper main aside nav p{
+    padding: 0 30px;
+  }
+
+  div#wrapper section.half-section{
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  .mob img{
+    width: 60%;
+	  height: auto;
+    margin: 50px 20%;
+  }
+}
+
+
+@media (min-width: 500px) and (max-width: 800px){
+  div#wrapper main, div#wrapper footer, div#wrapper header nav {width: 90%;}
+  div#wrapper header nav ul li p a{line-height: 1em;}
+  div#wrapper main article{
+    width: 90%;
+    float: none;
+	  margin-top: 30px;
+  }
+  div#wrapper main aside{
+    margin: 0 auto;
+    width: 90%;
+    float: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  div#wrapper main aside nav p{
+    padding: 5px 30px;
+  }
+
+  div#wrapper footer section {
+	  width: 70%;
+  }
+  div#wrapper footer section:first-child{
+    margin-bottom:15px;
+  }
+  div#wrapper section.half-section{
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  div#wrapper main#index section#first h1{
+    font-size: 55px;
+  }
+  div#wrapper main#index section#first p{
+    font-size: 25px;
+  }
+  .mob img{
+    width: 60%;
+    margin: 50px 20%;
+	  height: auto;
+  }
+}
+
+
+@media (max-width: 500px){
+  div#wrapper main, div#wrapper footer, div#wrapper header nav {width: 90%;}
+  div#wrapper header nav .logo img{
+	width: 40%;
+	height: auto;
+	max-height: 40px;
+	vertical-align: middle;
+	margin-top: 5px;
+  }
+
+  div#wrapper main article{
+    width: 90%;
+    float: none;
+	margin-top: 20px;
+  }
+  div#wrapper main aside{
+    margin: 0 auto;
+    width: 90%;
+    float: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  div#wrapper main aside nav p{
+    padding: 0 20px;
+  }
+  div#wrapper main article section, div#wrapper main aside nav{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  div#wrapper section.half-section{
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  div#wrapper main#index section#first h1{
+    font-size: 45px;
+  }
+  div#wrapper main#index section#first p{
+    font-size: 20px;
+  }
+  .mob img{
+    width: 60%;
+    margin: 50px 20%;
+  }
+  div#wrapper footer section{
+    width: 70%;
+    line-height:20px;
+  }
+}
